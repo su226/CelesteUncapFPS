@@ -1,0 +1,9 @@
+- Name: UncapFPS
+  Version: 1.0.0
+  DLL: UncapFPS.dll
+  Dependencies:
+  - Name: Everest
+    Version: 1.3471.0
+  OptionalDependencies:
+  - Name: CelesteTAS
+    Version: 3.25.11
