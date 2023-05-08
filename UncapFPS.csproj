@@ -1,6 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <Company>su226</Company>
+        <Version>1.1.0</Version>
+        <Copyright>MIT License</Copyright>
+    </PropertyGroup>
+
+    <PropertyGroup>
         <TargetFramework>net452</TargetFramework>
         <AssemblyName>UncapFPS</AssemblyName>
         <RootNamespace>Celeste.Mod.UncapFPS</RootNamespace>
@@ -8,10 +14,11 @@
         <CelestePrefix Condition="'$(CelestePrefix)' == '' And Exists('..\..\Celeste.exe')">..\..</CelestePrefix>
         <CelestePrefix Condition="'$(CelestePrefix)' == '' And Exists('..\..\..\Celeste.exe')">..\..\..</CelestePrefix>
         <CelestePrefix Condition="'$(CelestePrefix)' == ''">lib-stripped</CelestePrefix>
-        <CelestePrefix>/stor/opt/steam/steamapps/common/Celeste</CelestePrefix>
         <CelesteType Condition="'$(CelesteType)' == '' And Exists('$(CelestePrefix)\BuildIsXNA.txt')">XNA</CelesteType>
         <CelesteType Condition="'$(CelesteType)' == ''">FNA</CelesteType>
         <XNAPath Condition="'$(XNAPath)' == ''">$(WINDIR)\Microsoft.NET\assembly\GAC_32\{0}\v4.0_4.0.0.0__842cf8be1de50553\{0}.dll</XNAPath>
+        <CelesteTASPath Condition="'$(CelesteTASPath)' == ''">$(CelestePrefix)\Mods\Cache\CelesteTAS.CelesteTAS-EverestInterop.dll</CelesteTASPath>
+        <CollabUtils2Path Condition="'$(CollabUtils2Path)' == ''">$(CelestePrefix)\Mods\Cache\CollabUtils2.CollabUtils2.dll</CollabUtils2Path>
     </PropertyGroup>
 
     <!--Disable "Copy Local" for all references-->
@@ -31,7 +38,10 @@
         <Reference Include="$(CelestePrefix)\MMHOOK_Celeste.dll">
             <Private>false</Private>
         </Reference>
-        <Reference Include="$(CelestePrefix)\CelesteTAS-EverestInterop.dll">
+        <Reference Include="$(CelesteTASPath)">
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="$(CollabUtils2Path)">
             <Private>false</Private>
         </Reference>
     </ItemGroup>
